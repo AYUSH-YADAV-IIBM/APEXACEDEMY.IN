@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Cricket Academy | Gallery</title>
+<link rel="stylesheet" href="style.css?v=21">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+.album-page{min-height:100vh;padding:150px 0 80px}
+.album-header{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:45px}
+.album-header h1{margin:10px 0 0;font-family:Oswald,sans-serif;font-size:clamp(48px,7vw,92px);line-height:.95}
+.album-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.album-item{position:relative;aspect-ratio:4/3;overflow:hidden;background:#151515;border:1px solid rgba(255,255,255,.08);display:block}
+.album-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.album-item:hover img{transform:scale(1.06)}
+.album-caption{position:absolute;left:0;right:0;bottom:0;padding:22px;background:linear-gradient(transparent,rgba(0,0,0,.9));font-weight:700;color:#fff}
+@media(max-width:850px){.album-grid{grid-template-columns:repeat(2,1fr)}.album-header{align-items:start;flex-direction:column}}
+@media(max-width:560px){.album-grid{grid-template-columns:1fr}}
+</style>
+<link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+<header class="header">
+<div class="container nav">
+<a href="index.html#home" class="brand">
+<div class="brand-mark"><span>🏏</span></div>
+<div class="brand-text"><strong>APEX</strong><small>CRICKET ACADEMY</small></div>
+</a>
+<nav class="nav-links" id="navLinks">
+<a href="index.html#home">Home</a>
+<a href="index.html#about">About</a>
+<a href="index.html#programs">Programs</a>
+<a href="index.html#coaches">Coaches</a>
+<a href="gallery.html">Gallery</a>
+<a href="index.html#contact">Contact</a>
+<a href="index.html#admission" class="nav-cta">Join Academy</a>
+</nav>
+<button class="mobile-menu" id="mobileMenu" type="button">☰</button>
+</div>
+</header>
+
+<main class="album-page">
+<div class="container">
+<div class="album-header">
+<div>
+<span class="section-tag">APEX CRICKET ACADEMY</span>
+<h1>THE <em>PHOTO ALBUM.</em></h1>
+<p style="max-width:650px;margin-top:20px">Training sessions, match days, players, coaches and memorable academy moments.</p>
+</div>
+<a href="index.html#featured-gallery" class="btn btn-outline">← Back to Website</a>
+</div>
+
+<div class="album-grid">
+<a class="album-item" href="images/gallery-1.jpg"><img src="images/gallery-1.jpg" alt="Apex training"><div class="album-caption">Training Sessions</div></a>
+<a class="album-item" href="images/gallery-2.jpg"><img src="images/gallery-2.jpg" alt="Apex match day"><div class="album-caption">Match Days</div></a>
+<a class="album-item" href="images/gallery-3.jpg"><img src="images/gallery-3.jpg" alt="Apex players"><div class="album-caption">Players</div></a>
+<a class="album-item" href="images/gallery-4.jpg"><img src="images/gallery-4.jpg" alt="Apex coaching"><div class="album-caption">Coaching</div></a>
+<a class="album-item" href="images/gallery-5.jpg"><img src="images/gallery-5.jpg" alt="Apex ground"><div class="album-caption">Academy Ground</div></a>
+<a class="album-item" href="images/gallery-6.jpg"><img src="images/gallery-6.jpg" alt="Apex cricket moment"><div class="album-caption">Academy Moments</div></a>
+</div>
+
+<div style="margin-top:55px;text-align:center">
+<a href="index.html#admission" class="btn btn-primary">Join Apex Academy <span>↗</span></a>
+</div>
+</div>
+</main>
+<script src="script.js?v=21"></script>
+</body>
+</html>
