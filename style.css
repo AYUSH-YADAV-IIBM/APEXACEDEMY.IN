@@ -1,5 +1,4 @@
-
-/* =========================================================
+ /*=========================================================
    APEX CRICKET ACADEMY
    Premium Portfolio Stylesheet
    Complete version for the new index.html
@@ -40,6 +39,12 @@ body{
 img{
     max-width:100%;
     display:block;
+    height:auto;
+}
+
+img,
+video{
+    max-width:100%;
 }
 
 a{
@@ -684,7 +689,9 @@ button{cursor:pointer}
 }
 
 .facility-image{
-    height:250px;
+    width:100%;
+    aspect-ratio:3 / 2;
+    height:auto;
     overflow:hidden;
     background:
         linear-gradient(135deg,rgba(216,255,50,.08),transparent),
@@ -694,8 +701,12 @@ button{cursor:pointer}
 .facility-image img{
     width:100%;
     height:100%;
+    min-width:100%;
+    min-height:100%;
     object-fit:cover;
-    transition:.6s var(--ease);
+    object-position:center center;
+    display:block;
+    transition:transform .6s var(--ease);
 }
 
 .facility-card:hover .facility-image img{transform:scale(1.05)}
@@ -1967,5 +1978,2166 @@ button{cursor:pointer}
     .location-map,
     .location-map iframe {
         min-height: 300px;
+    }
+}
+
+/* =========================================================
+   APEX CRICKET ACADEMY — VIDEO HERO
+   ========================================================= */
+
+.hero-background{
+    position:absolute;
+    inset:0;
+    z-index:-4;
+    overflow:hidden;
+    background:#050505;
+    transform:scale(1.02);
+}
+
+.hero-background video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    max-width:none;
+    display:block;
+    object-fit:cover;
+    object-position:center center;
+    opacity:.58;
+}
+
+.hero-background::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+    background:
+        linear-gradient(90deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.82) 35%,rgba(0,0,0,.48) 70%,rgba(0,0,0,.68) 100%),
+        linear-gradient(0deg,rgba(0,0,0,.78) 0%,transparent 52%,rgba(0,0,0,.35) 100%);
+    pointer-events:none;
+}
+
+.hero-background::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:2;
+    background:radial-gradient(circle at 80% 50%,rgba(216,255,50,.08),transparent 30%);
+    pointer-events:none;
+}
+
+/* =========================================================
+   FLOATING CHATBOT
+   ========================================================= */
+
+.apex-chat{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    z-index:9999;
+    font-family:"Inter",Arial,sans-serif;
+}
+
+.apex-chat-toggle{
+    width:58px;
+    height:58px;
+    padding:0;
+    border:1px solid rgba(0,0,0,.2);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--accent);
+    color:#050505;
+    font-size:23px;
+    font-weight:900;
+    box-shadow:0 15px 40px rgba(0,0,0,.55);
+    transition:.3s var(--ease);
+}
+
+.apex-chat-toggle:hover{
+    transform:translateY(-4px) scale(1.04);
+    box-shadow:0 20px 50px rgba(0,0,0,.65);
+}
+
+.apex-chat-window{
+    position:absolute;
+    right:0;
+    bottom:72px;
+    width:min(360px,calc(100vw - 30px));
+    height:470px;
+    display:none;
+    flex-direction:column;
+    overflow:hidden;
+    background:#101010;
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 25px 80px rgba(0,0,0,.7);
+}
+
+.apex-chat-window.open{display:flex}
+
+.apex-chat-head{
+    min-height:68px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    padding:15px 17px;
+    background:#171717;
+    border-bottom:1px solid var(--line);
+}
+
+.apex-chat-head strong{
+    display:block;
+    color:#fff;
+    font-size:13px;
+    font-weight:800;
+}
+
+.apex-chat-head span{
+    display:block;
+    margin-top:3px;
+    color:#777;
+    font-size:9px;
+}
+
+.apex-chat-close{
+    width:34px;
+    height:34px;
+    padding:0;
+    border:1px solid var(--line);
+    background:#101010;
+    color:#aaa;
+    font-size:21px;
+    line-height:1;
+}
+
+.apex-chat-close:hover{
+    color:#000;
+    background:var(--accent);
+    border-color:var(--accent);
+}
+
+.apex-chat-messages{
+    flex:1;
+    min-height:0;
+    overflow-y:auto;
+    padding:16px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.apex-chat-message{
+    max-width:86%;
+    padding:10px 12px;
+    border-radius:8px;
+    font-size:11px;
+    line-height:1.65;
+}
+
+.apex-chat-message.bot{
+    align-self:flex-start;
+    background:#1b1b1b;
+    color:#d6d6d2;
+    border:1px solid rgba(255,255,255,.06);
+}
+
+.apex-chat-message.user{
+    align-self:flex-end;
+    background:var(--accent);
+    color:#050505;
+    font-weight:700;
+}
+
+.apex-chat-options{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    padding:0 15px 11px;
+}
+
+.apex-chat-option{
+    padding:7px 10px;
+    border:1px solid rgba(216,255,50,.30);
+    border-radius:4px;
+    background:rgba(216,255,50,.03);
+    color:#ccc;
+    font-size:9px;
+    font-weight:700;
+    transition:.2s ease;
+}
+
+.apex-chat-option:hover{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:#050505;
+}
+
+.apex-chat-form{
+    display:flex;
+    gap:7px;
+    padding:11px;
+    border-top:1px solid var(--line);
+    background:#0b0b0b;
+}
+
+.apex-chat-form input{
+    flex:1;
+    min-width:0;
+    height:42px;
+    padding:0 11px;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:0;
+    outline:none;
+    background:#151515;
+    color:#fff;
+    font-size:11px;
+}
+
+.apex-chat-form input::placeholder{color:#666}
+
+.apex-chat-form input:focus{border-color:rgba(216,255,50,.55)}
+
+.apex-chat-form button{
+    width:45px;
+    height:42px;
+    padding:0;
+    border:0;
+    background:var(--accent);
+    color:#050505;
+    font-size:16px;
+    font-weight:900;
+}
+
+.apex-chat-form button:hover{background:#fff}
+
+/* =========================================================
+   DEVELOPER CREDIT
+   ========================================================= */
+
+.developer-credit{color:#555}
+
+.developer-credit a{
+    color:#999;
+    font-weight:800;
+    transition:.25s ease;
+}
+
+.developer-credit a:hover{color:var(--accent)}
+
+.developer-dot{
+    margin:0 6px;
+    color:var(--accent);
+}
+
+/* =========================================================
+   VIDEO + CHATBOT RESPONSIVE
+   ========================================================= */
+
+@media(max-width:850px){
+    .hero-background video{
+        opacity:.46;
+        object-position:center center;
+    }
+
+    .hero-background::before{
+        background:
+            linear-gradient(90deg,rgba(0,0,0,.94),rgba(0,0,0,.66)),
+            linear-gradient(0deg,rgba(0,0,0,.82),transparent);
+    }
+
+    .apex-chat{
+        right:15px;
+        bottom:15px;
+    }
+
+    .apex-chat-window{
+        right:-2px;
+        bottom:68px;
+        width:min(350px,calc(100vw - 28px));
+        height:450px;
+    }
+
+    .apex-chat-toggle{
+        width:55px;
+        height:55px;
+    }
+}
+
+@media(max-width:600px){
+    .hero-background video{
+        opacity:.40;
+        object-position:center center;
+    }
+
+    .apex-chat-window{
+        width:calc(100vw - 28px);
+        height:440px;
+    }
+
+    .apex-chat-toggle{
+        width:53px;
+        height:53px;
+        font-size:21px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+    .hero-background video{display:none}
+} 
+/* =========================================================
+   APEX CRICKET ACADEMY
+   NEW / UPDATED CSS
+   ========================================================= */
+
+
+/* =========================================================
+   HERO VIDEO
+   ========================================================= */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    overflow: hidden;
+    background: #050505;
+}
+
+.hero-background video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.hero-video-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, .88) 0%,
+            rgba(0, 0, 0, .68) 42%,
+            rgba(0, 0, 0, .30) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, .45) 0%,
+            rgba(0, 0, 0, .12) 50%,
+            rgba(0, 0, 0, .72) 100%
+        );
+    z-index: 1;
+}
+
+.hero-grid {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: .14;
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.08) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.08) 1px,
+            transparent 1px
+        );
+    background-size: 70px 70px;
+}
+
+
+/* =========================================================
+   HERO VIDEO CONTROLS
+   ========================================================= */
+
+.hero-video-controls {
+    position: absolute;
+    right: 32px;
+    bottom: 32px;
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.video-control {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 50%;
+
+    background: rgba(10,10,10,.62);
+    color: #fff;
+
+    font-size: 17px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        border-color .25s ease;
+}
+
+.video-control:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,.14);
+    border-color: rgba(255,255,255,.55);
+}
+
+.video-control:active {
+    transform: scale(.94);
+}
+
+.video-control:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   CHATBOT MAIN
+   ========================================================= */
+
+.apex-chatbot {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 9999;
+
+    font-family: "Inter", sans-serif;
+}
+
+
+/* CHAT TOGGLE */
+
+.apex-chatbot-toggle {
+    width: 62px;
+    height: 62px;
+
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #dcdcdc
+        );
+
+    color: #050505;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 14px 45px rgba(0,0,0,.42),
+        0 0 0 1px rgba(255,255,255,.05);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.apex-chatbot-toggle:hover {
+    transform: translateY(-4px) scale(1.04);
+
+    box-shadow:
+        0 18px 55px rgba(0,0,0,.55);
+}
+
+.chatbot-bubble-icon {
+    font-size: 25px;
+    transition: .25s ease;
+}
+
+.chatbot-close-icon {
+    display: none;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.apex-chatbot.active .chatbot-bubble-icon {
+    display: none;
+}
+
+.apex-chatbot.active .chatbot-close-icon {
+    display: block;
+}
+
+
+/* =========================================================
+   CHAT WINDOW
+   ========================================================= */
+
+.apex-chatbot-window {
+    position: absolute;
+    right: 0;
+    bottom: 78px;
+
+    width: 390px;
+    max-width: calc(100vw - 32px);
+    height: 620px;
+    max-height: calc(100vh - 120px);
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25,25,25,.98),
+            rgba(8,8,8,.99)
+        );
+
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 22px;
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.65),
+        0 0 0 1px rgba(255,255,255,.03);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    opacity: 0;
+    visibility: hidden;
+    transform:
+        translateY(18px)
+        scale(.96);
+
+    transform-origin: bottom right;
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease,
+        transform .25s ease;
+}
+
+.apex-chatbot.active .apex-chatbot-window {
+    opacity: 1;
+    visibility: visible;
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =========================================================
+   CHAT HEADER
+   ========================================================= */
+
+.apex-chatbot-header {
+    min-height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 14px 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.09),
+            rgba(255,255,255,.025)
+        );
+
+    border-bottom: 1px solid rgba(255,255,255,.09);
+}
+
+.chatbot-header-info {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.chatbot-avatar {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.12);
+
+    font-size: 21px;
+}
+
+.chatbot-header-info strong {
+    display: block;
+
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.chatbot-header-info span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    margin-top: 4px;
+
+    color: rgba(255,255,255,.52);
+    font-size: 11px;
+}
+
+.chatbot-header-info span i {
+    width: 7px;
+    height: 7px;
+
+    display: inline-block;
+
+    border-radius: 50%;
+    background: #65d66e;
+
+    box-shadow: 0 0 10px rgba(101,214,110,.7);
+}
+
+.chatbot-header-close {
+    width: 34px;
+    height: 34px;
+
+    border: 0;
+    border-radius: 10px;
+
+    background: transparent;
+    color: rgba(255,255,255,.6);
+
+    font-size: 25px;
+    font-weight: 300;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.chatbot-header-close:hover {
+    background: rgba(255,255,255,.08);
+    color: #fff;
+}
+
+
+/* =========================================================
+   CHAT MESSAGES
+   ========================================================= */
+
+.apex-chatbot-messages {
+    flex: 1;
+
+    padding: 18px 15px;
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,.2) transparent;
+}
+
+.apex-chatbot-messages::-webkit-scrollbar {
+    width: 5px;
+}
+
+.apex-chatbot-messages::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.apex-chatbot-messages::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,.2);
+    border-radius: 20px;
+}
+
+
+/* MESSAGE */
+
+.chatbot-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+
+    margin-bottom: 14px;
+}
+
+.chatbot-message.user {
+    justify-content: flex-end;
+}
+
+.chatbot-message-avatar {
+    flex: 0 0 30px;
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.08);
+
+    font-size: 14px;
+}
+
+.chatbot-message-content {
+    max-width: 82%;
+
+    padding: 12px 14px;
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,.065);
+    border: 1px solid rgba(255,255,255,.075);
+
+    color: rgba(255,255,255,.78);
+
+    font-size: 12.5px;
+    line-height: 1.6;
+}
+
+.chatbot-message.user .chatbot-message-content {
+    background: #fff;
+    color: #111;
+
+    border-color: #fff;
+
+    border-radius: 15px 15px 4px 15px;
+}
+
+.chatbot-message.bot .chatbot-message-content {
+    border-radius: 4px 15px 15px 15px;
+}
+
+.chatbot-message-content p {
+    margin: 0 0 8px;
+}
+
+.chatbot-message-content p:last-child {
+    margin-bottom: 0;
+}
+
+.chatbot-message-content strong {
+    color: #fff;
+}
+
+.chatbot-message.user .chatbot-message-content strong {
+    color: #111;
+}
+
+.chatbot-message-content a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   QUICK OPTIONS
+   ========================================================= */
+
+.chatbot-quick-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7px;
+
+    margin-top: 8px;
+    padding: 0 2px 6px;
+}
+
+.chatbot-quick-options button {
+    min-height: 38px;
+
+    padding: 8px 9px;
+
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 10px;
+
+    background: rgba(255,255,255,.045);
+    color: rgba(255,255,255,.78);
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+.chatbot-quick-options button:hover {
+    background: rgba(255,255,255,.12);
+    color: #fff;
+    border-color: rgba(255,255,255,.25);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   CHAT INPUT
+   ========================================================= */
+
+.apex-chatbot-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 12px;
+
+    background: rgba(0,0,0,.35);
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.apex-chatbot-input input {
+    flex: 1;
+
+    width: 100%;
+    height: 45px;
+
+    padding: 0 14px;
+
+    border: 1px solid rgba(255,255,255,.11);
+    border-radius: 12px;
+
+    outline: none;
+
+    background: rgba(255,255,255,.055);
+    color: #fff;
+
+    font-family: inherit;
+    font-size: 12px;
+
+    transition: .2s ease;
+}
+
+.apex-chatbot-input input::placeholder {
+    color: rgba(255,255,255,.38);
+}
+
+.apex-chatbot-input input:focus {
+    border-color: rgba(255,255,255,.32);
+    background: rgba(255,255,255,.075);
+}
+
+.apex-chatbot-input button {
+    width: 45px;
+    height: 45px;
+
+    flex: 0 0 45px;
+
+    border: 0;
+    border-radius: 12px;
+
+    background: #fff;
+    color: #111;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.apex-chatbot-input button:hover {
+    transform: translateY(-2px);
+    background: #e9e9e9;
+}
+
+
+/* =========================================================
+   CHATBOT ADMISSION FORM OVERLAY
+   ========================================================= */
+
+.chatbot-form-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10001;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0,0,0,.78);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease;
+}
+
+.chatbot-form-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* FORM MODAL */
+
+.chatbot-form-modal {
+    position: relative;
+
+    width: 620px;
+    max-width: 100%;
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #191919,
+            #090909
+        );
+
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 22px;
+
+    box-shadow:
+        0 35px 100px rgba(0,0,0,.7);
+
+    transform:
+        translateY(20px)
+        scale(.97);
+
+    transition: transform .3s ease;
+
+    scrollbar-width: thin;
+}
+
+.chatbot-form-overlay.active .chatbot-form-modal {
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.chatbot-form-modal::-webkit-scrollbar {
+    width: 5px;
+}
+
+.chatbot-form-modal::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,.2);
+    border-radius: 20px;
+}
+
+
+/* CLOSE */
+
+.chatbot-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 10px;
+
+    background: rgba(255,255,255,.05);
+    color: rgba(255,255,255,.7);
+
+    font-size: 25px;
+    font-weight: 300;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.chatbot-modal-close:hover {
+    background: rgba(255,255,255,.12);
+    color: #fff;
+}
+
+
+/* =========================================================
+   CHATBOT FORM HEADING
+   ========================================================= */
+
+.chatbot-form-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding-right: 45px;
+
+    margin-bottom: 24px;
+}
+
+.chatbot-form-icon {
+    width: 52px;
+    height: 52px;
+
+    flex: 0 0 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.12);
+
+    font-size: 24px;
+}
+
+.chatbot-form-heading span {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: rgba(255,255,255,.45);
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .15em;
+}
+
+.chatbot-form-heading h2 {
+    margin: 0;
+
+    color: #fff;
+
+    font-size: 26px;
+    line-height: 1.1;
+}
+
+.chatbot-form-heading p {
+    margin: 5px 0 0;
+
+    color: rgba(255,255,255,.5);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   CHATBOT FORM GRID
+   ========================================================= */
+
+.chatbot-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+
+/* FORM GROUP */
+
+.chatbot-form-group {
+    margin-bottom: 15px;
+}
+
+.chatbot-form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: rgba(255,255,255,.72);
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.chatbot-form-group input,
+.chatbot-form-group select,
+.chatbot-form-group textarea {
+    width: 100%;
+
+    padding: 12px 13px;
+
+    border: 1px solid rgba(255,255,255,.11);
+    border-radius: 10px;
+
+    outline: none;
+
+    background: rgba(255,255,255,.055);
+    color: #fff;
+
+    font-family: inherit;
+    font-size: 12px;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease;
+}
+
+.chatbot-form-group input,
+.chatbot-form-group select {
+    height: 45px;
+}
+
+.chatbot-form-group textarea {
+    min-height: 105px;
+    resize: vertical;
+}
+
+.chatbot-form-group input::placeholder,
+.chatbot-form-group textarea::placeholder {
+    color: rgba(255,255,255,.3);
+}
+
+.chatbot-form-group input:focus,
+.chatbot-form-group select:focus,
+.chatbot-form-group textarea:focus {
+    border-color: rgba(255,255,255,.32);
+    background: rgba(255,255,255,.075);
+}
+
+.chatbot-form-group select {
+    cursor: pointer;
+}
+
+.chatbot-form-group select option {
+    background: #151515;
+    color: #fff;
+}
+
+
+/* =========================================================
+   CHATBOT FORM SUBMIT
+   ========================================================= */
+
+#chatbotAdmissionForm button[type="submit"] {
+    width: 100%;
+    min-height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    margin-top: 4px;
+
+    border: 0;
+    border-radius: 11px;
+
+    background: #fff;
+    color: #0a0a0a;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+#chatbotAdmissionForm button[type="submit"]:hover {
+    transform: translateY(-2px);
+    background: #e8e8e8;
+}
+
+
+/* =========================================================
+   DEVELOPER CREDIT
+   ========================================================= */
+
+.developer-credit {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.developer-credit a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+
+    transition: opacity .2s ease;
+}
+
+.developer-credit a:hover {
+    opacity: .65;
+}
+
+.developer-dot {
+    opacity: .4;
+}
+
+
+/* =========================================================
+   LIGHTBOX IMPROVEMENT
+   ========================================================= */
+
+.lightbox {
+    z-index: 10000;
+}
+
+.lightbox-close {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .hero-video-controls {
+        right: 18px;
+        bottom: 20px;
+        gap: 8px;
+    }
+
+    .video-control {
+        width: 42px;
+        height: 42px;
+        font-size: 15px;
+    }
+
+    .apex-chatbot {
+        right: 16px;
+        bottom: 16px;
+    }
+
+    .apex-chatbot-toggle {
+        width: 58px;
+        height: 58px;
+    }
+
+    .apex-chatbot-window {
+        right: 0;
+        bottom: 70px;
+
+        width: calc(100vw - 24px);
+        max-width: none;
+
+        height: min(620px, calc(100vh - 100px));
+
+        border-radius: 18px;
+    }
+
+    .chatbot-quick-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chatbot-form-modal {
+        padding: 22px 18px;
+        border-radius: 18px;
+    }
+
+    .chatbot-form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .chatbot-form-heading h2 {
+        font-size: 22px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .hero-video-controls {
+        right: 14px;
+        bottom: 14px;
+    }
+
+    .video-control {
+        width: 39px;
+        height: 39px;
+    }
+
+    .apex-chatbot-window {
+        width: calc(100vw - 16px);
+        right: -4px;
+    }
+
+    .chatbot-message-content {
+        max-width: 88%;
+        font-size: 12px;
+    }
+
+    .chatbot-form-overlay {
+        padding: 10px;
+    }
+
+    .chatbot-form-modal {
+        max-height: 95vh;
+        padding: 20px 15px;
+    }
+
+    .chatbot-form-heading {
+        gap: 10px;
+    }
+
+    .chatbot-form-icon {
+        width: 45px;
+        height: 45px;
+        flex-basis: 45px;
+        font-size: 20px;
+    }
+}
+
+
+/* =========================================================
+   PREVENT BODY SCROLL WHEN MODAL IS OPEN
+   ========================================================= */
+
+body.chatbot-modal-open {
+    overflow: hidden;
+}
+/* =========================================================
+   APEX CHATBOT - FINAL FIX
+========================================================= */
+
+.apex-chatbot{
+    position:fixed;
+    right:24px;
+    bottom:24px;
+    z-index:99999;
+    font-family:"Inter",Arial,sans-serif;
+}
+
+/* CHAT BUTTON */
+
+.apex-chatbot-toggle{
+    width:60px;
+    height:60px;
+    border:0;
+    border-radius:50%;
+    background:var(--accent,#d8ff32);
+    color:#050505;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    box-shadow:0 12px 35px rgba(0,0,0,.55);
+    transition:all .25s ease;
+    position:relative;
+    font-size:0;
+}
+
+.apex-chatbot-toggle:hover{
+    transform:translateY(-4px) scale(1.04);
+    box-shadow:0 18px 45px rgba(0,0,0,.7);
+}
+
+.chatbot-bubble-icon{
+    font-size:25px;
+    line-height:1;
+}
+
+.chatbot-close-icon{
+    display:none;
+    font-size:30px;
+    line-height:1;
+}
+
+.apex-chatbot.open .chatbot-bubble-icon{
+    display:none;
+}
+
+.apex-chatbot.open .chatbot-close-icon{
+    display:block;
+}
+
+/* =========================================================
+   CHAT WINDOW
+========================================================= */
+
+.apex-chatbot-window{
+    position:absolute;
+    right:0;
+    bottom:74px;
+
+    width:380px;
+    max-width:calc(100vw - 30px);
+    height:560px;
+
+    display:flex;
+    flex-direction:column;
+
+    background:#101010;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,.75),
+        0 0 0 1px rgba(216,255,50,.03);
+
+    overflow:hidden;
+
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+
+    transform:translateY(15px) scale(.97);
+    transform-origin:bottom right;
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease,
+        visibility .25s ease;
+}
+
+.apex-chatbot.open .apex-chatbot-window{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:translateY(0) scale(1);
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.apex-chatbot-header{
+    min-height:72px;
+    padding:14px 16px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+
+    background:#171717;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.chatbot-header-info{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.chatbot-avatar{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(216,255,50,.1);
+    border:1px solid rgba(216,255,50,.2);
+
+    font-size:20px;
+}
+
+.chatbot-header-info strong{
+    display:block;
+    color:#fff;
+    font-size:14px;
+    font-weight:800;
+}
+
+.chatbot-header-info span{
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    margin-top:3px;
+
+    color:#858585;
+    font-size:10px;
+}
+
+.chatbot-header-info span i{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#65d66b;
+    display:inline-block;
+}
+
+.chatbot-header-close{
+    width:32px;
+    height:32px;
+
+    border:0;
+    background:transparent;
+    color:#888;
+
+    font-size:24px;
+    cursor:pointer;
+
+    border-radius:8px;
+}
+
+.chatbot-header-close:hover{
+    color:#fff;
+    background:rgba(255,255,255,.06);
+}
+
+/* =========================================================
+   MESSAGES
+========================================================= */
+
+.apex-chatbot-messages{
+    flex:1;
+    min-height:0;
+
+    overflow-y:auto;
+
+    padding:17px;
+
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+
+    scrollbar-width:thin;
+}
+
+.apex-chatbot-messages::-webkit-scrollbar{
+    width:5px;
+}
+
+.apex-chatbot-messages::-webkit-scrollbar-thumb{
+    background:#333;
+    border-radius:10px;
+}
+
+.chatbot-message{
+    display:flex;
+    align-items:flex-start;
+    gap:8px;
+
+    max-width:92%;
+}
+
+.chatbot-message.user{
+    align-self:flex-end;
+    flex-direction:row-reverse;
+}
+
+.chatbot-message-avatar{
+    flex:0 0 28px;
+
+    width:28px;
+    height:28px;
+
+    border-radius:8px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#1c1c1c;
+    border:1px solid rgba(255,255,255,.07);
+
+    font-size:13px;
+}
+
+.chatbot-message-content{
+    padding:10px 12px;
+
+    border-radius:12px;
+
+    background:#1b1b1b;
+    border:1px solid rgba(255,255,255,.07);
+
+    color:#d8d8d8;
+
+    font-size:12px;
+    line-height:1.6;
+}
+
+.chatbot-message-content p{
+    margin:0 0 8px;
+}
+
+.chatbot-message-content p:last-child{
+    margin-bottom:0;
+}
+
+.chatbot-message-content strong{
+    color:#fff;
+}
+
+.chatbot-message-content a{
+    color:var(--accent,#d8ff32);
+    text-decoration:none;
+    font-weight:700;
+}
+
+.chatbot-message-content a:hover{
+    text-decoration:underline;
+}
+
+.chatbot-message.user .chatbot-message-content{
+    background:var(--accent,#d8ff32);
+    color:#070707;
+    border-color:transparent;
+    font-weight:700;
+}
+
+.chatbot-message.user .chatbot-message-content strong{
+    color:#070707;
+}
+
+/* =========================================================
+   QUICK OPTIONS
+========================================================= */
+
+.chatbot-quick-options{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+
+    padding:0 15px 12px;
+}
+
+.chatbot-quick-options button{
+    border:1px solid rgba(216,255,50,.28);
+    border-radius:8px;
+
+    padding:8px 10px;
+
+    background:#151515;
+    color:#ccc;
+
+    font-size:10px;
+    font-weight:700;
+
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.chatbot-quick-options button:hover{
+    background:var(--accent,#d8ff32);
+    color:#050505;
+    border-color:var(--accent,#d8ff32);
+}
+
+/* =========================================================
+   CHAT INPUT
+========================================================= */
+
+.apex-chatbot-input{
+    display:flex;
+    gap:8px;
+
+    padding:11px;
+
+    background:#0b0b0b;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.apex-chatbot-input input{
+    flex:1;
+    min-width:0;
+
+    height:42px;
+
+    padding:0 12px;
+
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:9px;
+
+    outline:none;
+
+    background:#171717;
+    color:#fff;
+
+    font-family:inherit;
+    font-size:12px;
+}
+
+.apex-chatbot-input input::placeholder{
+    color:#666;
+}
+
+.apex-chatbot-input input:focus{
+    border-color:rgba(216,255,50,.5);
+}
+
+.apex-chatbot-input button{
+    width:44px;
+    height:42px;
+
+    border:0;
+    border-radius:9px;
+
+    background:var(--accent,#d8ff32);
+    color:#050505;
+
+    font-size:18px;
+    font-weight:900;
+
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.apex-chatbot-input button:hover{
+    transform:translateY(-1px);
+}
+
+/* =========================================================
+   ADMISSION FORM OVERLAY
+========================================================= */
+
+.chatbot-form-overlay{
+    position:fixed;
+    inset:0;
+
+    z-index:100000;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(0,0,0,.78);
+    backdrop-filter:blur(10px);
+
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+
+    transition:.25s ease;
+}
+
+.chatbot-form-overlay.active{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+.chatbot-form-modal{
+    width:700px;
+    max-width:100%;
+
+    max-height:90vh;
+    overflow-y:auto;
+
+    padding:28px;
+
+    background:#111;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;
+
+    box-shadow:0 30px 100px rgba(0,0,0,.8);
+
+    position:relative;
+}
+
+.chatbot-modal-close{
+    position:absolute;
+    top:14px;
+    right:14px;
+
+    width:34px;
+    height:34px;
+
+    border:0;
+    border-radius:8px;
+
+    background:#1d1d1d;
+    color:#aaa;
+
+    font-size:23px;
+    cursor:pointer;
+}
+
+.chatbot-modal-close:hover{
+    color:#fff;
+}
+
+.chatbot-form-heading{
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    margin-bottom:24px;
+}
+
+.chatbot-form-icon{
+    width:50px;
+    height:50px;
+
+    border-radius:12px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(216,255,50,.1);
+    font-size:22px;
+}
+
+.chatbot-form-heading span{
+    color:#888;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:1.5px;
+}
+
+.chatbot-form-heading h2{
+    margin:2px 0;
+    color:#fff;
+    font-size:24px;
+}
+
+.chatbot-form-heading p{
+    margin:0;
+    color:#777;
+    font-size:11px;
+}
+
+.chatbot-form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.chatbot-form-group{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.chatbot-form-group label{
+    color:#aaa;
+    font-size:10px;
+    font-weight:700;
+}
+
+.chatbot-form-group input,
+.chatbot-form-group select,
+.chatbot-form-group textarea{
+    width:100%;
+    box-sizing:border-box;
+
+    min-height:42px;
+
+    padding:10px 12px;
+
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:8px;
+
+    outline:none;
+
+    background:#181818;
+    color:#fff;
+
+    font-family:inherit;
+    font-size:12px;
+}
+
+.chatbot-form-group textarea{
+    min-height:90px;
+    resize:vertical;
+}
+
+.chatbot-form-group input:focus,
+.chatbot-form-group select:focus,
+.chatbot-form-group textarea:focus{
+    border-color:rgba(216,255,50,.5);
+}
+
+/* =========================================================
+   DEVELOPER OVERLAY FIX
+========================================================= */
+
+.developer-overlay{
+    position:fixed;
+    inset:0;
+
+    z-index:100001;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(0,0,0,.82);
+    backdrop-filter:blur(12px);
+
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+
+    transition:.25s ease;
+}
+
+.developer-overlay.active{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+.developer-modal{
+    width:480px;
+    max-width:100%;
+
+    padding:35px;
+
+    position:relative;
+
+    text-align:center;
+
+    background:#111;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+
+    box-shadow:0 30px 100px rgba(0,0,0,.8);
+}
+
+.developer-modal-close{
+    position:absolute;
+    top:14px;
+    right:14px;
+
+    width:34px;
+    height:34px;
+
+    border:0;
+    border-radius:8px;
+
+    background:#1d1d1d;
+    color:#aaa;
+
+    font-size:23px;
+    cursor:pointer;
+}
+
+.developer-modal-close:hover{
+    color:#fff;
+}
+
+.developer-avatar{
+    width:75px;
+    height:75px;
+
+    margin:0 auto 15px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:var(--accent,#d8ff32);
+    color:#050505;
+
+    font-size:25px;
+    font-weight:900;
+}
+
+.developer-badge{
+    display:inline-block;
+
+    padding:6px 10px;
+
+    border:1px solid rgba(216,255,50,.25);
+    border-radius:20px;
+
+    color:var(--accent,#d8ff32);
+
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.developer-modal h2{
+    margin:12px 0 5px;
+
+    color:#fff;
+    font-size:28px;
+}
+
+.developer-modal > p{
+    margin:0 0 20px;
+
+    color:#aaa;
+    font-size:12px;
+}
+
+.developer-modal > p strong{
+    color:#fff;
+}
+
+.developer-ag{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    padding:14px;
+
+    margin-bottom:18px;
+
+    text-align:left;
+
+    background:#181818;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:12px;
+}
+
+.developer-ag-logo{
+    width:45px;
+    height:45px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:10px;
+
+    background:var(--accent,#d8ff32);
+    color:#050505;
+
+    font-weight:900;
+}
+
+.developer-ag strong{
+    display:block;
+    color:#fff;
+    font-size:13px;
+}
+
+.developer-ag span{
+    display:block;
+    margin-top:2px;
+    color:#777;
+    font-size:9px;
+}
+
+.developer-actions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+
+    margin-bottom:10px;
+}
+
+.developer-actions a,
+.developer-connect-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    min-height:42px;
+
+    border-radius:9px;
+
+    text-decoration:none;
+
+    font-size:11px;
+    font-weight:700;
+
+    transition:.2s ease;
+}
+
+.developer-actions a{
+    background:#1a1a1a;
+    color:#ccc;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.developer-actions a:hover{
+    background:#222;
+    color:#fff;
+}
+
+.developer-connect-btn{
+    background:var(--accent,#d8ff32);
+    color:#050505;
+}
+
+.developer-connect-btn:hover{
+    transform:translateY(-2px);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+    .apex-chatbot{
+        right:15px;
+        bottom:15px;
+    }
+
+    .apex-chatbot-toggle{
+        width:55px;
+        height:55px;
+    }
+
+    .apex-chatbot-window{
+        right:-1px;
+        bottom:67px;
+
+        width:calc(100vw - 28px);
+        height:500px;
+
+        border-radius:15px;
+    }
+
+    .chatbot-form-modal{
+        padding:22px;
+    }
+
+    .chatbot-form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .developer-modal{
+        padding:28px 20px;
+    }
+
+    .developer-actions{
+        grid-template-columns:1fr;
     }
 }
