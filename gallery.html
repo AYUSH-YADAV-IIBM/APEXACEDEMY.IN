@@ -1,170 +1,1609 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Apex Cricket Academy | Gallery</title>
-<meta name="description" content="Explore the Apex Cricket Academy Patna photo gallery featuring training sessions, match days, players, coaches and memorable academy moments.">
-<link rel="canonical" href="https://www.apexcricketacademy.in/gallery.html">
+    <meta charset="UTF-8">
 
-<link rel="stylesheet" href="style.css?v=22">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="favicon.png">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<style>
-.album-page{min-height:100vh;padding:145px 0 90px;background:#070707}
-.album-header{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:48px}
-.album-header h1{margin:10px 0 0;font-family:"Oswald",sans-serif;font-size:clamp(48px,7vw,92px);line-height:.92;letter-spacing:-1px}
-.album-header h1 em{color:var(--accent);font-style:normal}
-.album-header p{max-width:650px;margin-top:20px;color:var(--muted);font-size:14px;line-height:1.8}
-.album-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.album-item{position:relative;width:100%;aspect-ratio:4/3;min-width:0;overflow:hidden;display:block;background:#111;border:1px solid rgba(255,255,255,.09);isolation:isolate}
-.album-item img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;transition:transform .6s cubic-bezier(.2,.75,.2,1)}
-.album-item::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.35) 35%,transparent 68%)}
-.album-item:hover img{transform:scale(1.06)}
-.album-caption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:26px 24px 22px;color:#fff;font-family:"Inter",Arial,sans-serif;font-size:15px;font-weight:800;letter-spacing:.2px}
-.album-caption::before{content:"";display:block;width:28px;height:2px;margin-bottom:9px;background:var(--accent)}
-.album-back{flex-shrink:0}
-.album-cta{margin-top:55px;text-align:center}
+    <title>Apex Cricket Academy | Gallery</title>
 
-@media(max-width:850px){
-.album-page{padding:120px 0 70px}
-.album-header{align-items:flex-start;flex-direction:column;gap:25px;margin-bottom:35px}
-.album-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-}
-@media(max-width:560px){
-.album-page{padding:105px 0 60px}
-.album-header h1{font-size:clamp(43px,14vw,68px)}
-.album-header p{font-size:13px;line-height:1.7}
-.album-grid{grid-template-columns:1fr;gap:14px}
-.album-caption{padding:24px 20px 18px;font-size:14px}
-.album-cta{margin-top:40px}
-}
-</style>
+    <meta
+        name="description"
+        content="Explore the Apex Cricket Academy Patna photo gallery featuring training sessions, match days, players, coaches and memorable academy moments."
+    >
+
+    <link
+        rel="canonical"
+        href="https://www.apexcricketacademy.in/gallery.html"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css?v=30"
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="logo.jpeg"
+    >
+
+
+    <style>
+
+        /* =====================================================
+           GALLERY PAGE
+        ===================================================== */
+
+        .album-page{
+
+            min-height:100vh;
+
+            padding:145px 0 90px;
+
+            background:#070707;
+
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .album-header{
+
+            display:flex;
+
+            justify-content:space-between;
+
+            align-items:flex-end;
+
+            gap:40px;
+
+            margin-bottom:48px;
+
+        }
+
+
+        .album-header h1{
+
+            margin:10px 0 0;
+
+            font-family:"Oswald",sans-serif;
+
+            font-size:clamp(48px,7vw,92px);
+
+            line-height:.92;
+
+            letter-spacing:-1px;
+
+        }
+
+
+        .album-header h1 em{
+
+            color:var(--accent);
+
+            font-style:normal;
+
+        }
+
+
+        .album-header p{
+
+            max-width:650px;
+
+            margin-top:20px;
+
+            color:var(--muted);
+
+            font-size:14px;
+
+            line-height:1.8;
+
+        }
+
+
+        /* =====================================================
+           GRID
+        ===================================================== */
+
+        .album-grid{
+
+            display:grid;
+
+            grid-template-columns:
+                repeat(3,minmax(0,1fr));
+
+            gap:18px;
+
+        }
+
+
+        /* =====================================================
+           PHOTO CARD
+        ===================================================== */
+
+        .album-item{
+
+            position:relative;
+
+            width:100%;
+
+            aspect-ratio:4 / 3;
+
+            min-width:0;
+
+            overflow:hidden;
+
+            display:block;
+
+            background:#111;
+
+            border:1px solid rgba(255,255,255,.09);
+
+            isolation:isolate;
+
+            text-decoration:none;
+
+            transition:
+
+                border-color .35s ease,
+
+                transform .35s ease,
+
+                box-shadow .35s ease;
+
+        }
+
+
+        .album-item:hover{
+
+            border-color:
+                rgba(216,255,50,.55);
+
+            transform:translateY(-4px);
+
+            box-shadow:
+                0 18px 45px rgba(0,0,0,.45);
+
+        }
+
+
+        /* =====================================================
+           IMAGE
+        ===================================================== */
+
+        .album-item img{
+
+            width:100%;
+
+            height:100%;
+
+            display:block;
+
+            object-fit:contain;
+
+            object-position:center;
+
+            background:#111;
+
+            transition:
+                transform .6s cubic-bezier(.2,.75,.2,1);
+
+        }
+
+
+        .album-item:hover img{
+
+            transform:scale(1.035);
+
+        }
+
+
+        /* =====================================================
+           IMAGE OVERLAY
+        ===================================================== */
+
+        .album-item::after{
+
+            content:"";
+
+            position:absolute;
+
+            inset:0;
+
+            z-index:1;
+
+            pointer-events:none;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0,0,0,.88) 0%,
+                    rgba(0,0,0,.35) 35%,
+                    transparent 68%
+                );
+
+        }
+
+
+        /* =====================================================
+           CAPTION
+        ===================================================== */
+
+        .album-caption{
+
+            position:absolute;
+
+            left:0;
+
+            right:0;
+
+            bottom:0;
+
+            z-index:2;
+
+            padding:26px 24px 22px;
+
+            color:#fff;
+
+            font-family:"Inter",Arial,sans-serif;
+
+            font-size:15px;
+
+            font-weight:800;
+
+            letter-spacing:.2px;
+
+        }
+
+
+        .album-caption::before{
+
+            content:"";
+
+            display:block;
+
+            width:28px;
+
+            height:2px;
+
+            margin-bottom:9px;
+
+            background:var(--accent);
+
+        }
+
+
+        /* =====================================================
+           BACK BUTTON
+        ===================================================== */
+
+        .album-back{
+
+            flex-shrink:0;
+
+        }
+
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .album-cta{
+
+            margin-top:55px;
+
+            text-align:center;
+
+        }
+
+
+        /* =====================================================
+           NAVBAR LOGO
+        ===================================================== */
+
+        .brand{
+
+            display:flex !important;
+
+            align-items:center !important;
+
+            gap:14px !important;
+
+            text-decoration:none !important;
+
+            flex-shrink:0 !important;
+
+        }
+
+
+        .brand-mark{
+
+            width:64px !important;
+
+            height:58px !important;
+
+            display:flex !important;
+
+            align-items:center !important;
+
+            justify-content:center !important;
+
+            padding:0 !important;
+
+            margin:0 !important;
+
+            border:none !important;
+
+            background:transparent !important;
+
+            box-shadow:none !important;
+
+            overflow:visible !important;
+
+        }
+
+
+        .brand-mark img{
+
+            width:64px !important;
+
+            height:58px !important;
+
+            display:block !important;
+
+            object-fit:contain !important;
+
+            object-position:center !important;
+
+            border:none !important;
+
+            background:transparent !important;
+
+            transition:transform .3s ease;
+
+        }
+
+
+        .brand:hover .brand-mark img{
+
+            transform:scale(1.04);
+
+        }
+
+
+        .brand-text{
+
+            display:flex !important;
+
+            flex-direction:column !important;
+
+            justify-content:center !important;
+
+            line-height:1 !important;
+
+            margin:0 !important;
+
+            padding:0 !important;
+
+        }
+
+
+        .brand-text strong{
+
+            display:block !important;
+
+            color:#fff !important;
+
+            font-size:25px !important;
+
+            font-weight:800 !important;
+
+            line-height:1 !important;
+
+            letter-spacing:2px !important;
+
+        }
+
+
+        .brand-text small{
+
+            display:block !important;
+
+            margin-top:7px !important;
+
+            color:rgba(255,255,255,.55) !important;
+
+            font-size:9px !important;
+
+            font-weight:500 !important;
+
+            line-height:1 !important;
+
+            letter-spacing:4px !important;
+
+            white-space:nowrap !important;
+
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media(max-width:850px){
+
+            .album-page{
+
+                padding:120px 0 70px;
+
+            }
+
+
+            .album-header{
+
+                align-items:flex-start;
+
+                flex-direction:column;
+
+                gap:25px;
+
+                margin-bottom:35px;
+
+            }
+
+
+            .album-grid{
+
+                grid-template-columns:
+                    repeat(2,minmax(0,1fr));
+
+                gap:14px;
+
+            }
+
+
+            .brand{
+
+                gap:10px !important;
+
+            }
+
+
+            .brand-mark{
+
+                width:52px !important;
+
+                height:48px !important;
+
+            }
+
+
+            .brand-mark img{
+
+                width:52px !important;
+
+                height:48px !important;
+
+            }
+
+
+            .brand-text strong{
+
+                font-size:20px !important;
+
+                letter-spacing:1.5px !important;
+
+            }
+
+
+            .brand-text small{
+
+                margin-top:5px !important;
+
+                font-size:7px !important;
+
+                letter-spacing:2.5px !important;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media(max-width:560px){
+
+            .album-page{
+
+                padding:105px 0 60px;
+
+            }
+
+
+            .album-header h1{
+
+                font-size:
+                    clamp(43px,14vw,68px);
+
+            }
+
+
+            .album-header p{
+
+                font-size:13px;
+
+                line-height:1.7;
+
+            }
+
+
+            .album-grid{
+
+                grid-template-columns:1fr;
+
+                gap:14px;
+
+            }
+
+
+            .album-item{
+
+                width:100%;
+
+                aspect-ratio:4 / 3;
+
+                min-height:0;
+
+            }
+
+
+            .album-item img{
+
+                width:100%;
+
+                height:100%;
+
+                object-fit:contain;
+
+                object-position:center;
+
+            }
+
+
+            .album-caption{
+
+                padding:24px 20px 18px;
+
+                font-size:14px;
+
+            }
+
+
+            .album-cta{
+
+                margin-top:40px;
+
+            }
+
+
+            .album-cta .btn{
+
+                width:100%;
+
+                justify-content:center;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           VERY SMALL PHONES
+        ===================================================== */
+
+        @media(max-width:400px){
+
+            .brand{
+
+                gap:8px !important;
+
+            }
+
+
+            .brand-mark{
+
+                width:46px !important;
+
+                height:44px !important;
+
+            }
+
+
+            .brand-mark img{
+
+                width:46px !important;
+
+                height:44px !important;
+
+            }
+
+
+            .brand-text strong{
+
+                font-size:18px !important;
+
+            }
+
+
+            .brand-text small{
+
+                font-size:6.5px !important;
+
+                letter-spacing:2px !important;
+
+            }
+
+
+            .album-item{
+
+                aspect-ratio:4 / 3;
+
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
 <header class="header">
-<div class="container nav">
-<a href="index.html#home" class="brand" aria-label="Apex Cricket Academy Home">
-<div class="brand-mark"><span>🏏</span></div>
-<div class="brand-text"><strong>APEX</strong><small>CRICKET ACADEMY</small></div>
-</a>
 
-<nav class="nav-links" id="navLinks" aria-label="Main navigation">
-<a href="index.html#home">Home</a>
-<a href="index.html#about">About</a>
-<a href="index.html#programs">Programs</a>
-<a href="index.html#coaches">Coaches</a>
-<a href="gallery.html" aria-current="page">Gallery</a>
-<a href="index.html#contact">Contact</a>
-<a href="index.html#admission" class="nav-cta">Join Academy</a>
-</nav>
+    <div class="container nav">
 
-<button class="mobile-menu" id="mobileMenu" type="button" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false">☰</button>
-</div>
+
+        <a
+            href="index.html#home"
+            class="brand"
+            aria-label="Apex Cricket Academy Home"
+        >
+
+            <div class="brand-mark">
+
+                <img
+                    src="logo.jpeg"
+                    alt="Apex Cricket Academy Logo"
+                >
+
+            </div>
+
+
+            <div class="brand-text">
+
+                <strong>APEX</strong>
+
+                <small>
+                    CRICKET ACADEMY
+                </small>
+
+            </div>
+
+        </a>
+
+
+
+        <nav
+            class="nav-links"
+            id="navLinks"
+            aria-label="Main navigation"
+        >
+
+            <a href="index.html#home">
+                Home
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#programs">
+                Programs
+            </a>
+
+            <a href="index.html#coaches">
+                Coaches
+            </a>
+
+            <a
+                href="gallery.html"
+                aria-current="page"
+            >
+                Gallery
+            </a>
+
+            <a href="index.html#contact">
+                Contact
+            </a>
+
+            <a
+                href="index.html#admission"
+                class="nav-cta"
+            >
+                Join Academy
+            </a>
+
+        </nav>
+
+
+
+        <button
+            class="mobile-menu"
+            id="mobileMenu"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-controls="navLinks"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+
+    </div>
+
 </header>
 
+
+
+<!-- =========================================================
+     MAIN GALLERY
+========================================================= -->
+
 <main class="album-page">
-<div class="container">
 
-<div class="album-header">
-<div>
-<span class="section-tag">APEX CRICKET ACADEMY</span>
-<h1>THE <em>PHOTO ALBUM.</em></h1>
-<p>Training sessions, match days, players, coaches and memorable academy moments.</p>
-</div>
+    <div class="container">
 
-<a href="index.html#featured-gallery" class="btn btn-outline album-back">← Back to Website</a>
-</div>
 
-<div class="album-grid">
+        <!-- =================================================
+             GALLERY HEADER
+        ================================================= -->
 
-<a class="album-item" href="g12.jpeg" aria-label="Open Training Sessions image">
-<img src="g12.jpeg" alt="Players during cricket training at Apex Cricket Academy Patna" loading="lazy" decoding="async">
-<div class="album-caption">Training Sessions</div>
-</a>
+        <div class="album-header">
 
-<a class="album-item" href="g13.jpeg" aria-label="Open Match Days image">
-    <img
-        src="g13.jpeg"
-        alt="Apex Cricket Academy match day"
-        loading="lazy"
-        decoding="async"
-        style="
-            width:100%;
-            height:100%;
-            display:block;
-            object-fit:contain;
-            object-position:center;
-            background:#111;
-        "
-    >
-    <div class="album-caption">Match Days</div>
-</a>
+            <div>
 
-<a class="album-item" href="g11.jpeg" aria-label="Open Players image">
-<img src="g11.jpeg" alt="Apex Cricket Academy players" loading="lazy" decoding="async">
-<div class="album-caption">Players</div>
-</a>
+                <span class="section-tag">
+                    APEX CRICKET ACADEMY
+                </span>
 
-<a class="album-item" href="g17.jpeg" aria-label="Open Coaching image">
-<img  style="
-            width:100%;
-            height:100%;
-            display:block;
-            object-fit:contain;
-            object-position:center;
-            background:#111;
-        " 
-        src="g17.jpeg" alt="Apex Cricket Academy coaching session" loading="lazy" decoding="async">
-<div class="album-caption">match report</div>
-</a>
 
-<a class="album-item" href="net pic.jpeg" aria-label="Open Academy Ground image">
-<img src="net pic.jpeg" alt="Apex Cricket Academy ground" loading="lazy" decoding="async">
-<div class="album-caption">Academy Ground</div>
-</a>
+                <h1>
+                    THE
+                    <em>PHOTO ALBUM.</em>
+                </h1>
 
-<a class="album-item" href="2nddo.jpeg" aria-label="Open Academy Moments image">
-<img src="2nddo.jpeg" alt="Apex Cricket Academy memorable cricket moment" loading="lazy" decoding="async">
-<div class="album-caption">Academy Moments</div>
-</a>
 
-</div>
+                <p>
+                    Training sessions, match days, players,
+                    coaches and memorable academy moments.
+                </p>
 
-<div class="album-cta">
-<a href="index.html#admission" class="btn btn-primary">Join Apex Academy <span>↗</span></a>
-</div>
+            </div>
 
-</div>
+
+            <a
+                href="index.html#featured-gallery"
+                class="btn btn-outline album-back"
+            >
+                ← Back to Website
+            </a>
+
+        </div>
+
+
+
+        <!-- =================================================
+             30 PHOTO GRID
+        ================================================= -->
+
+        <div class="album-grid">
+
+
+            <!-- 01 -->
+            <a
+                class="album-item"
+                href="gn14.jpeg"
+                aria-label="Open Training Sessions image"
+            >
+
+                <img
+                    src="gn14.jpeg"
+                    alt="Players during cricket training at Apex Cricket Academy Patna"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Training Sessions
+                </div>
+
+            </a>
+
+
+
+            <!-- 02 -->
+            <a
+                class="album-item"
+                href="gn3.jpeg"
+                aria-label="Open Match Day image"
+            >
+
+                <img
+                    src="gn3.jpeg"
+                    alt="Apex Cricket Academy match day"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Match Day
+                </div>
+
+            </a>
+
+
+
+            <!-- 03 -->
+            <a
+                class="album-item"
+                href="gn19.jpeg"
+                aria-label="Open Players image"
+            >
+
+                <img
+                    src="gn19.jpeg"
+                    alt="Apex Cricket Academy players"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Players
+                </div>
+
+            </a>
+
+
+
+            <!-- 04 -->
+            <a
+                class="album-item"
+                href="gn17.jpeg"
+                aria-label="Open Match Report image"
+            >
+
+                <img
+                    src="gn17.jpeg"
+                    alt="Apex Cricket Academy cricket match"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Match Report
+                </div>
+
+            </a>
+
+
+
+            <!-- 05 -->
+            <a
+                class="album-item"
+                href="net pic.jpeg"
+                aria-label="Open Academy Ground image"
+            >
+
+                <img
+                    src="net pic.jpeg"
+                    alt="Apex Cricket Academy practice ground"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Academy Ground
+                </div>
+
+            </a>
+
+
+
+            <!-- 06 -->
+            <a
+                class="album-item"
+                href="gn2.jpeg"
+                aria-label="Open Academy Moments image"
+            >
+
+                <img
+                    src="gn2.jpeg"
+                    alt="Apex Cricket Academy memorable cricket moment"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Academy Moments
+                </div>
+
+            </a>
+
+
+
+            <!-- 07 -->
+            <a
+                class="album-item"
+                href="gn4.jpeg"
+                aria-label="Open Team Spirit image"
+            >
+
+                <img
+                    src="gn4.jpeg"
+                    alt="Apex Cricket Academy team"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Team Spirit
+                </div>
+
+            </a>
+
+
+
+            <!-- 08 -->
+            <a
+                class="album-item"
+                href="gn1.jpeg"
+                aria-label="Open Practice Session image"
+            >
+
+                <img
+                    src="gn1.jpeg"
+                    alt="Apex Cricket Academy practice session"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Practice Session
+                </div>
+
+            </a>
+
+
+
+            <!-- 09 -->
+            <a
+                class="album-item"
+                href="gn5.jpeg"
+                aria-label="Open Coaching image"
+            >
+
+                <img
+                    src="gn5.jpeg"
+                    alt="Apex Cricket Academy coaching session"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Coaching
+                </div>
+
+            </a>
+
+
+
+            <!-- 10 -->
+            <a
+                class="album-item"
+                href="gn14.jpeg"
+                aria-label="Open Player Development image"
+            >
+
+                <img
+                    src="gn14.jpeg"
+                    alt="Apex Cricket Academy player development"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Player Development
+                </div>
+
+            </a>
+
+
+
+            <!-- 11 -->
+            <a
+                class="album-item"
+                href="2ndo.jpeg"
+                aria-label="Open Cricket Training image"
+            >
+
+                <img
+                    src="2ndo.jpeg"
+                    alt="Cricket training at Apex Cricket Academy"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Cricket Training
+                </div>
+
+            </a>
+
+
+
+            <!-- 12 -->
+            <a
+                class="album-item"
+                href="g12.jpeg"
+                aria-label="Open Team Training image"
+            >
+
+                <img
+                    src="g12.jpeg"
+                    alt="Apex Cricket Academy team training"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Team Training
+                </div>
+
+            </a>
+
+
+
+            <!-- 13 -->
+            <a
+                class="album-item"
+                href="g14.jpeg"
+                aria-label="Open Ground Practice image"
+            >
+
+                <img
+                    src="g14.jpeg"
+                    alt="Apex Cricket Academy ground practice"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Ground Practice
+                </div>
+
+            </a>
+
+
+
+            <!-- 14 -->
+            <a
+                class="album-item"
+                href="gn3.jpeg"
+                aria-label="Open Match Moments image"
+            >
+
+                <img
+                    src="gn3.jpeg"
+                    alt="Apex Cricket Academy match moments"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Match Moments
+                </div>
+
+            </a>
+
+
+
+            <!-- 15 -->
+            <a
+                class="album-item"
+                href="gn15.jpeg"
+                aria-label="Open Cricket Players image"
+            >
+
+                <img
+                    src="gn15.jpeg"
+                    alt="Apex Cricket Academy cricket players"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Cricket Players
+                </div>
+
+            </a>
+
+
+
+            <!-- 16 -->
+            <a
+                class="album-item"
+                href="gn9.jpeg"
+                aria-label="Open Training Day image"
+            >
+
+                <img
+                    src="gn9.jpeg"
+                    alt="Apex Cricket Academy training day"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Training Day
+                </div>
+
+            </a>
+
+
+
+            <!-- 17 -->
+            <a
+                class="album-item"
+                href="g28.jpeg"
+                aria-label="Open Competition image"
+            >
+
+                <img
+                    src="gn13.jpeg"
+                    alt="Apex Cricket Academy competition"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Competition
+                </div>
+
+            </a>
+
+
+
+            <!-- 18 -->
+            <a
+                class="album-item"
+                href="gn7.jpeg"
+                aria-label="Open Cricket Match image"
+            >
+
+                <img
+                    src="gn7.jpeg"
+                    alt="Apex Cricket Academy cricket match"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Cricket Match
+                </div>
+
+            </a>
+
+
+
+            <!-- 19 -->
+            <a
+                class="album-item"
+                href="gn21.jpeg"
+                aria-label="Open Team Moments image"
+            >
+
+                <img
+                    src="gn21.jpeg"
+                    alt="Apex Cricket Academy team moment"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    
+                </div>
+
+            </a>
+
+
+
+            <!-- 20 -->
+            <a
+                class="album-item"
+                href="gn23.jpeg"
+                aria-label="Open Fitness Training image"
+            >
+
+                <img
+                    src="gn23.jpeg"
+                    alt="Apex Cricket Academy fitness training"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    
+                </div>
+
+            </a>
+
+
+
+            <!-- 21 -->
+            <a
+                class="album-item"
+                href="ground.jpeg"
+                aria-label="Open Batting Practice image"
+            >
+
+                <img
+                    src="ground.jpeg"
+                    alt="Apex Cricket Academy batting practice"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    
+                </div>
+
+            </a>
+
+
+
+            <!-- 22 -->
+            <a
+                class="album-item"
+                href="g11.jpeg"
+                aria-label="Open Bowling Practice image"
+            >
+
+                <img
+                    src="g11.jpeg"
+                    alt="Apex Cricket Academy bowling practice"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Bowling Practice
+                </div>
+
+            </a>
+
+
+
+            <!-- 23 -->
+            <a
+                class="album-item"
+                href="g12.jpeg"
+                aria-label="Open Fielding Practice image"
+            >
+
+                <img
+                    src="g12.jpeg"
+                    alt="Apex Cricket Academy fielding practice"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Fielding Practice
+                </div>
+
+            </a>
+
+
+
+            <!-- 24 -->
+            <a
+                class="album-item"
+                href="g13.jpeg"
+                aria-label="Open Academy Team image"
+            >
+
+                <img
+                    src="g13.jpeg"
+                    alt="Apex Cricket Academy team members"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    congratulation for odi
+                </div>
+
+            </a>
+
+
+
+            <!-- 25 -->
+            <a
+                class="album-item"
+                href="gn17.jpeg"
+                aria-label="Open Tournament image"
+            >
+
+                <img
+                    src="gn17.jpeg"
+                    alt="Apex Cricket Academy tournament"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Tournament
+                </div>
+
+            </a>
+
+
+
+            <!-- 26 -->
+            <a
+                class="album-item"
+                href="gn18.jpeg"
+                aria-label="Open Championship image"
+            >
+
+                <img
+                    src="gn18.jpeg"
+                    alt="Apex Cricket Academy championship moment"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Championship
+                </div>
+
+            </a>
+
+
+
+            <!-- 27 -->
+            <a
+                class="album-item"
+                href="gn3.jpeg"
+                aria-label="Open Celebration image"
+            >
+
+                <img
+                    src="gn3.jpeg"
+                    alt="Apex Cricket Academy celebration"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Celebration
+                </div>
+
+            </a>
+
+
+
+            <!-- 28 -->
+            <a
+                class="album-item"
+                href="gn6.jpeg"
+                aria-label="Open Coach and Players image"
+            >
+
+                <img
+                    src="gn6.jpeg"
+                    alt="Apex Cricket Academy coach and players"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Coach
+                </div>
+
+            </a>
+
+
+
+            <!-- 29 -->
+            <a
+                class="album-item"
+                href="gn9.jpeg"
+                aria-label="Open Academy Event image"
+            >
+
+                <img
+                    src="gn9.jpeg"
+                    alt="Apex Cricket Academy event"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Academy 
+                </div>
+
+            </a>
+
+
+
+            <!-- 30 -->
+            <a
+                class="album-item"
+                href="gn10.jpeg"
+                aria-label="Open Academy Memories image"
+            >
+
+                <img
+                    src="gn10.jpeg"
+                    alt="Apex Cricket Academy memorable moment"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="album-caption">
+                    Academy Memories
+                </div>
+
+            </a>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             CTA
+        ================================================= -->
+
+        <div class="album-cta">
+
+            <a
+                href="index.html#admission"
+                class="btn btn-primary"
+            >
+
+                Join Apex Academy
+
+                <span>↗</span>
+
+            </a>
+
+        </div>
+
+
+    </div>
+
 </main>
 
-<script src="script.js?v=22"></script>
+
+
+<!-- =========================================================
+     SCRIPT
+========================================================= -->
+
+<script src="script.js?v=30"></script>
+
 
 <script>
-document.addEventListener("DOMContentLoaded",function(){
-const menu=document.getElementById("mobileMenu");
-const links=document.getElementById("navLinks");
-if(!menu||!links)return;
 
-menu.addEventListener("click",function(){
-const isOpen=links.classList.toggle("open");
-menu.setAttribute("aria-expanded",isOpen?"true":"false");
-});
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
 
-links.querySelectorAll("a").forEach(function(link){
-link.addEventListener("click",function(){
-links.classList.remove("open");
-menu.setAttribute("aria-expanded","false");
-});
-});
-});
+        const menu =
+            document.getElementById("mobileMenu");
+
+        const links =
+            document.getElementById("navLinks");
+
+
+        if(!menu || !links){
+
+            return;
+
+        }
+
+
+        menu.addEventListener(
+            "click",
+            function(){
+
+                const isOpen =
+                    links.classList.toggle("open");
+
+
+                menu.setAttribute(
+                    "aria-expanded",
+                    isOpen
+                        ? "true"
+                        : "false"
+                );
+
+            }
+        );
+
+
+        links
+            .querySelectorAll("a")
+            .forEach(
+                function(link){
+
+                    link.addEventListener(
+                        "click",
+                        function(){
+
+                            links.classList.remove(
+                                "open"
+                            );
+
+
+                            menu.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+    }
+);
+
 </script>
 
+
 </body>
+
 </html>

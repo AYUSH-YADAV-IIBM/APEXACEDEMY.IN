@@ -4311,3 +4311,177 @@ body.chatbot-modal-open {
         border-radius:0 !important;
     }
 }
+
+/* =========================================================
+   APEX NAVBAR BRAND / LOGO
+   ========================================================= */
+
+.brand{
+    display:flex !important;
+    align-items:center !important;
+    gap:14px !important;
+
+    text-decoration:none !important;
+
+    height:100% !important;
+    flex-shrink:0 !important;
+}
+
+
+/* ================= LOGO ================= */
+
+.brand-mark{
+    width:64px !important;
+    height:58px !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+
+    padding:0 !important;
+    margin:0 !important;
+
+    border:none !important;
+    border-radius:0 !important;
+
+    background:transparent !important;
+    box-shadow:none !important;
+
+    overflow:visible !important;
+}
+
+.brand-mark img{
+    width:64px !important;
+    height:58px !important;
+
+    display:block !important;
+
+    object-fit:contain !important;
+    object-position:center !important;
+
+    border:none !important;
+    border-radius:0 !important;
+
+    background:transparent !important;
+
+    transition:transform .3s ease;
+}
+
+
+/* Logo hover */
+
+.brand:hover .brand-mark img{
+    transform:scale(1.04);
+}
+
+
+/* ================= BRAND TEXT ================= */
+
+.brand-text{
+    display:flex !important;
+    flex-direction:column !important;
+
+    justify-content:center !important;
+
+    line-height:1 !important;
+
+    margin:0 !important;
+    padding:0 !important;
+}
+
+.brand-text strong{
+    display:block !important;
+
+    color:#ffffff !important;
+
+    font-size:25px !important;
+    font-weight:800 !important;
+
+    line-height:1 !important;
+
+    letter-spacing:2px !important;
+}
+
+.brand-text small{
+    display:block !important;
+
+    margin-top:7px !important;
+
+    color:rgba(255,255,255,.55) !important;
+
+    font-size:9px !important;
+    font-weight:500 !important;
+
+    line-height:1 !important;
+
+    letter-spacing:4px !important;
+
+    white-space:nowrap !important;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:850px){
+
+    .brand{
+        gap:10px !important;
+    }
+
+    .brand-mark{
+        width:52px !important;
+        height:48px !important;
+    }
+
+    .brand-mark img{
+        width:52px !important;
+        height:48px !important;
+    }
+
+    .brand-text strong{
+        font-size:20px !important;
+        letter-spacing:1.5px !important;
+    }
+
+    .brand-text small{
+        margin-top:5px !important;
+
+        font-size:7px !important;
+        letter-spacing:2.5px !important;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media(max-width:400px){
+
+    .brand{
+        gap:8px !important;
+    }
+
+    .brand-mark{
+        width:46px !important;
+        height:44px !important;
+    }
+
+    .brand-mark img{
+        width:46px !important;
+        height:44px !important;
+    }
+
+    .brand-text strong{
+        font-size:18px !important;
+    }
+
+    .brand-text small{
+        font-size:6.5px !important;
+        letter-spacing:2px !important;
+    }
+
+}
