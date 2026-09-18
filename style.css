@@ -4141,3 +4141,173 @@ body.chatbot-modal-open {
         grid-template-columns:1fr;
     }
 }
+/* =========================================================
+   MOBILE VIDEO + IMAGE FIX
+   ========================================================= */
+
+@media (max-width: 850px){
+
+    /* ================= HERO ================= */
+
+    .hero{
+        min-height: 760px !important;
+        height: auto !important;
+        overflow: hidden;
+    }
+
+    .hero-background{
+        position:absolute !important;
+        inset:0 !important;
+        width:100% !important;
+        height:100% !important;
+        overflow:hidden !important;
+    }
+
+    .hero-background video,
+    #heroVideo{
+        position:absolute !important;
+        inset:0 !important;
+
+        width:100% !important;
+        height:100% !important;
+
+        object-fit:cover !important;
+        object-position:center center !important;
+
+        display:block !important;
+    }
+
+
+    /* ================= GALLERY ================= */
+
+    .gallery-preview{
+        overflow:hidden;
+    }
+
+    .gallery-preview .container{
+        width:calc(100% - 28px) !important;
+        max-width:none !important;
+    }
+
+    .gallery-heading{
+        display:flex !important;
+        flex-direction:column !important;
+        gap:18px !important;
+    }
+
+    .gallery-heading p{
+        max-width:100% !important;
+    }
+
+
+    /* ================= GALLERY GRID ================= */
+
+    .gallery-preview .container > div[style*="grid-template-columns"]{
+        display:grid !important;
+
+        grid-template-columns:1fr !important;
+        grid-template-rows:auto !important;
+
+        gap:14px !important;
+
+        width:100% !important;
+        height:auto !important;
+    }
+
+
+    /* ================= ALL GALLERY ITEMS ================= */
+
+    .gallery-preview .container > div[style*="grid-template-columns"] > a{
+        grid-column:1 !important;
+        grid-row:auto !important;
+
+        width:100% !important;
+
+        height:auto !important;
+
+        min-height:0 !important;
+
+        aspect-ratio:auto !important;
+
+        display:flex !important;
+
+        align-items:center !important;
+        justify-content:center !important;
+
+        overflow:hidden !important;
+
+        background:#050505 !important;
+    }
+
+
+    /* ================= GALLERY IMAGES ================= */
+
+    .gallery-preview .container > div[style*="grid-template-columns"] img{
+
+        width:100% !important;
+
+        height:auto !important;
+
+        max-width:100% !important;
+
+        max-height:none !important;
+
+        display:block !important;
+
+        object-fit:contain !important;
+
+        object-position:center !important;
+
+        background:#050505 !important;
+    }
+
+
+    /* ================= REMOVE OLD OVERLAY ON MOBILE ================= */
+
+    .gallery-preview .preview-overlay{
+        display:none !important;
+    }
+
+
+    /* ================= GALLERY BUTTON ================= */
+
+    .gallery-button-wrap{
+        margin-top:25px !important;
+        text-align:center !important;
+    }
+
+    .gallery-button-wrap .btn{
+        width:100% !important;
+        justify-content:center !important;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width:480px){
+
+    .hero{
+        min-height:720px !important;
+    }
+
+    .hero-background video,
+    #heroVideo{
+        object-position:center center !important;
+    }
+
+    .gallery-preview .container{
+        width:calc(100% - 24px) !important;
+    }
+
+    .gallery-preview .container > div[style*="grid-template-columns"]{
+        gap:12px !important;
+    }
+
+    .gallery-preview .container > div[style*="grid-template-columns"] > a{
+        border-radius:0 !important;
+    }
+}
